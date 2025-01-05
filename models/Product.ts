@@ -55,7 +55,7 @@ const imageVariantSchema = new Schema<ImageVariant>({
     }
 })
 
-const ProductSchema = new Schema({
+const ProductSchema = new Schema<IProduct>({
     name: {
         type: String,
         required: true,
@@ -74,5 +74,5 @@ const ProductSchema = new Schema({
     }
 }, { timestamps: true });
 
-const Product = models.Product || model("Product", ProductSchema);
+const Product = models?.Product || model<IProduct>("Product", ProductSchema);
 export default Product

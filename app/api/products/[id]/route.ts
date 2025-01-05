@@ -10,6 +10,8 @@ export async function GET(
 ) {
     try {
         const { id } = await props.params;
+        console.log('id: ', id);
+        
         
         await dbConnect();
 

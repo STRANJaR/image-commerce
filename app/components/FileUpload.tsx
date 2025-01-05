@@ -29,23 +29,23 @@ export default function FileUpload({ onSuccess }: { onSuccess: (response: IKUplo
     return (
         <div className="space-y-2">
             <IKUpload
-            fileName="product-image.png"
-            onError={onError}
-            onSuccess={handleSuccess}
-            onUploadStart={handleStartUpload}
-            validateFile={(file: File) => {
-                const validTypes = ['image/png', 'image/jpeg', 'image/webp'];
-                if(!validTypes.includes(file.type)){
-                    setError('Invalid file type')
-                }
+                fileName="product-image.png"
+                onError={onError}
+                onSuccess={handleSuccess}
+                onUploadStart={handleStartUpload}
+                validateFile={(file: File) => {
+                    const validTypes = ['image/png', 'image/jpeg', 'image/webp'];
+                    if (!validTypes.includes(file.type)) {
+                        setError('Invalid file type')
+                    }
 
-                if(file.size > 5 * 1024 * 1024) {
-                    // 5 MB limit
-                    setError('File size too large')
-                }
+                    if (file.size > 5 * 1024 * 1024) {
+                        // 5 MB limit
+                        setError('File size too large')
+                    }
 
-                return true
-            }}
+                    return true
+                }}
             />
 
             {uploading && (
@@ -53,7 +53,7 @@ export default function FileUpload({ onSuccess }: { onSuccess: (response: IKUplo
             )}
 
             {error && (
-                <p className="text-sm text-red-500">{error}</p> 
+                <p className="text-sm text-red-500">{error}</p>
             )}
         </div>
     )
